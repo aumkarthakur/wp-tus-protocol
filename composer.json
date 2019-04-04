@@ -1,0 +1,12 @@
+{
+    "name": "ben/wp-tus-protocol",
+    "require": {
+        "ankitpokhrel/tus-php": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "BENJAMIN MOODY",
+            "email": "email@benjaminmoody.com"
+        }
+    ]
+}
