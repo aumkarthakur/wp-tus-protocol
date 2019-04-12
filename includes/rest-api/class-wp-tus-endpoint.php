@@ -234,7 +234,7 @@ class WP_Tus_Endpoint {
 		}
 
 		//Default action to redirect to uploaded file
-		wp_redirect( $final_file_url );
+		wp_redirect( esc_url_raw($final_file_url) );
 		exit();
 
 	}
@@ -319,7 +319,7 @@ class WP_Tus_Endpoint {
 
 		if( $results->have_posts() ) {
 
-			$file_url = wp_get_attachment_image_url( $results->post->ID );
+			$file_url = wp_get_attachment_image_url( $results->post->ID, 'full' );
 
 		}
 
