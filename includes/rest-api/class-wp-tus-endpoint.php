@@ -58,6 +58,58 @@ class WP_Tus_Endpoint {
 			)
 		);
 
+		//Setup headers
+		if( self::is_tus_upload_request() ) {
+			remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+			add_filter( 'rest_pre_serve_request', array($this, 'setup_request_headers'));
+		}
+
+	}
+
+	/**
+	* is_tus_upload_request
+	*
+	* Helper to detect if current request is to the TUS upload endpoint
+	*
+	* @return bool
+	* @access public static
+	* @author Ben Moody
+	*/
+	public static function is_tus_upload_request() {
+
+		$tus_request_endpoint = '/wp-json/' . self::$base_api_url . self::$rest_route;
+
+		if( isset($_SERVER['REQUEST_URI']) ) {
+
+			if( strpos($_SERVER['REQUEST_URI'], $tus_request_endpoint) !== false ) {
+				return true;
+			}
+
+		}
+
+		return false;
+	}
+
+	/**
+	* setup_request_headers
+	*
+	* @CALLED BY FILTER 'rest_pre_serve_request'
+	*
+	* Filter the rest pre serve request headers and set CORS headers required for TUS access
+	*
+	* @access public
+	* @author Ben Moody
+	*/
+	public function setup_request_headers() {
+
+		$origin = get_http_origin();
+
+		header( 'Access-Control-Allow-Origin: ' . esc_url_raw($origin) );
+		header( 'Access-Control-Allow-Methods: OPTIONS, POST, HEAD, PATCH, DELETE, GET' );
+		header( 'Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Content-Length, Upload-Key, Upload-Checksum, Upload-Length, Upload-Offset, Tus-Version, Tus-Resumable, Upload-Metadata' );
+		header( 'Access-Control-Allow-Credentials: true' );
+		header( 'Access-Control-Max-Age: 86400' );
+
 	}
 
 	/**

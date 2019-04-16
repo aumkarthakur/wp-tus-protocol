@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ankitpokhrel/tus-php",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ankitpokhrel/tus-php.git",
-                "reference": "caf4da8b223234d3a8112db4947b2a258aeed719"
+                "reference": "3a271299538252bbba6566c8afe7cd1baa18efe5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ankitpokhrel/tus-php/zipball/caf4da8b223234d3a8112db4947b2a258aeed719",
-                "reference": "caf4da8b223234d3a8112db4947b2a258aeed719",
+                "url": "https://api.github.com/repos/ankitpokhrel/tus-php/zipball/3a271299538252bbba6566c8afe7cd1baa18efe5",
+                "reference": "3a271299538252bbba6566c8afe7cd1baa18efe5",
                 "shasum": ""
             },
             "require": {
@@ -36,7 +36,7 @@
                 "friendsofphp/php-cs-fixer": "^2.9",
                 "mockery/mockery": "^1.2.0",
                 "php-mock/php-mock": "^2.0",
-                "phpunit/phpunit": "^6.5.13"
+                "phpunit/phpunit": "6.5.14"
             },
             "bin": [
                 "bin/tus"
@@ -58,7 +58,7 @@
                 }
             ],
             "description": "A pure PHP server and client for the tus resumable upload protocol v1.0.0",
-            "time": "2019-01-15T10:08:20+00:00"
+            "time": "2019-04-06T03:11:43+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

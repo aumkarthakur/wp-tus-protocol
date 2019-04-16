@@ -21,6 +21,7 @@ class Cors implements TusMiddleware
             'Access-Control-Allow-Headers' => 'Origin, X-Requested-With, Content-Type, Content-Length, Upload-Key, Upload-Checksum, Upload-Length, Upload-Offset, Tus-Version, Tus-Resumable, Upload-Metadata',
             'Access-Control-Expose-Headers' => 'Upload-Key, Upload-Checksum, Upload-Length, Upload-Offset, Upload-Metadata, Tus-Version, Tus-Resumable, Tus-Extension, Location',
             'Access-Control-Max-Age' => self::HEADER_ACCESS_CONTROL_MAX_AGE,
+            'Access-Control-Allow-Credentials' => 'true',
         ]);
     }
 }
