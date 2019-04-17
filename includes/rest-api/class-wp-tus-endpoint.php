@@ -359,7 +359,7 @@ class WP_Tus_Endpoint {
 		$args = array(
 		    'post_type' => 'attachment',
 		    'posts_per_page' => 1,
-			'post_name' => $tus_file_id,
+			'name' => $tus_file_id,
 			'post_status' => 'inherit',
 
 			// Normal query goes here //
